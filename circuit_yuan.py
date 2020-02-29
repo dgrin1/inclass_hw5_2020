@@ -1,22 +1,13 @@
 from numpy import array,empty
 from numpy.linalg import inv,solve
 from numpy import copy,dot
-# 
-A = array([[ 2,  1,  4,  1 ],
-            [ 3,  4, -1, -1 ],
-            [ 1, -4,  1,  5 ],
-            [ 2, -2,  1,  3 ]], float)
-v = array([ -4, 3, 9, 7 ],float)
-N = len(v)
 
 
 
-
-A = array([[ 4,  -1, -1,  -1 ],
-           [ -1,  3, 0, -1 ],
-           [ -1, 0,  3,  -1 ],
-           [ -1, -1,  -1,  4 ]], float)
-v = array([ 5, 0, 5, 0 ],float)
+A = array([[1, 1, -1],
+           [6, 0, 0],
+           [0, 0, 9]], float)
+v = array([0,6,12],float)
 N = len(v)
 
 
