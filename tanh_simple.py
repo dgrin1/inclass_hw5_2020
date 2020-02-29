@@ -20,7 +20,6 @@ def fdif_der(f,x,h):
 
 # Enter interactive mode
 plt.ion()
-#
 
 #plt.figure(1)
 #Set up latex fonts
@@ -41,15 +40,6 @@ plt.yscale('log')
 plt.ylim([0,10])
 plt.xlabel(r'$1/T~({\rm eV}^{-1})$',fontsize=18)
 plt.ylabel(r'$\frac{dM}{dT}')
-
-
-
-
-
-
-
-
-
 plt.show()
 
 

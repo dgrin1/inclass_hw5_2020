@@ -190,4 +190,4 @@ def plot(f,a,b,N):
 
 
 # test (Note that N is better be an even integer)
-#plot(function,0,2,100)
+plot(function,0,2,100)

@@ -56,8 +56,24 @@ def RombergIntegral(f,a,b,N):
     return R[i,m],error,i,Nmin/N
 
 # test
+'''
 print("Uisng Trapezoid Integral with 10000 iterations gives the result:", TrapezoidSum(lambda x: x**4-2*x+1,0,2,10000))
 print("Using Romberg Integral gives the result:", RombergIntegral(lambda x: x**4-2*x+1,0,2,10)[0],"with a trapezoidal integration level of", RombergIntegral(lambda x: x**4-2*x+1,0,2,10)[2],"and an iteration number of",RombergIntegral(lambda x: x**4-2*x+1,0,2,10)[3])
 print("The error using Romberg Integral is:", RombergIntegral(lambda x: x**4-2*x+1,0,2,10)[1])
+'''
+
+# Using the Romberg Integral to do thermal integral practice found in "thermal.py" or "thermal_gauss.py" -- details about the question see lecture note 02/19/2020 p7
+# 
+
+# Define a function that performs integration over the infinite ranges of energy (Eb<=E<=inf) -- A=int(E_B,inf,(Egamma)^2/(exp(Egamma/T)-1)) with respect to Egamma
+# Using change of variable trick shows in Chapter 5.8 p179 of Newman to define the integrand after changing the variable as a function of z (the changed variable of E) & T.
+def thermal_integrand(z,T):
+    # Define the constant Egamma as Eb as the lower limit for the original integral
+    Eb=13.6 # eV
+    # Returning the integrand for both the integral A and the normalizing factor N
+    return (1/((1-z)**2))*((z/(1-z)+Eb)**2)/(np.exp((z/(1-z)+Eb)/T)-1), (1/((1-z)**2))*((z/(1-z))**2)/(np.exp((z/(1-z))/T)-1)
+
+# Using Romberg Integration and the integrand defined above to compute the probability
+
 
         

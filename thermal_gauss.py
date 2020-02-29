@@ -1,4 +1,14 @@
 from gaussxw import *
+import numpy as np
+
+#Compute integrand using trigonometric transform
+def arg(kappa,theta):
+	out=(kappa+np.tan(theta))**2.
+	out*=np.exp(-np.tan(theta))
+	out/=np.exp(kappa)-np.exp(-np.tan(theta))
+	out*=np.power(np.cos(theta),-2.e0)
+	return out
+
 #This time with Gaussian integration
 def frac_gaussreal(kappa,N):
 #define integrand for integral with binding energy
@@ -22,6 +32,7 @@ def frac_gaussreal(kappa,N):
 	ev=np.abs(vn-v)
 	return u/v,np.abs(u/v-(u+eu)/(v-ev))
 	
-	
-	s,t=frac_gaussreal(13.6/8.,i)
-	errarr_g.append(t)
+#test
+s,t=frac_gaussreal(13.6/8.0,100)
+print(s)
+print(t)
