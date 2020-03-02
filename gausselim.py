@@ -24,7 +24,6 @@ B=copy(A)
 vold=copy(v)
 
 
-
 # Gaussian elimination
 for m in range(N):
 

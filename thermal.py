@@ -58,9 +58,6 @@ def frac_simpreal(kappa,N):
 #define integral for probability normalization		
 	def integrand_botto(theta):
 		return arg(0.,theta)
-
-
-
 #use simpsons rule
 	u,eu,a,b=simpreal(integrand,1.e-8,np.pi/2,N)
 #Halve stepsize to get an error estimate

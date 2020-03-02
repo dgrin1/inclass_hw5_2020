@@ -20,7 +20,7 @@ def fdif_der(f,x,h):
 	return s
 
 # Enter interactive mode
-plt.ion()
+#plt.ion()
 #
 
 plt.figure(1)
