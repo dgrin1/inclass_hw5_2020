@@ -4,7 +4,7 @@ from numpy.linalg import inv,solve
 A=array([[1,1,-1],
 	 [6,0,0],
 	 [0,0,9]],float)
-v=array([0,6,12],float)
+v=array([0,6,-12],float)
 N=len(v)
 
 # Gaussian elimination
