@@ -1,7 +1,7 @@
 from numpy import array,empty
 from numpy.linalg import inv,solve
 from numpy import copy,dot
-# 
+#
 A = array([[ 2,  1,  4,  1 ],
             [ 3,  4, -1, -1 ],
             [ 1, -4,  1,  5 ],
@@ -27,7 +27,6 @@ vold=copy(v)
 
 # Gaussian elimination
 for m in range(N):
-
     # Divide by the diagonal element
     div = A[m,m]
     A[m,:] /= div
@@ -38,7 +37,7 @@ for m in range(N):
         mult = A[i,m]
         A[i,:] -= mult*A[m,:]
         v[i] -= mult*v[m]
-
+    
 # Backsubstitution
 x = empty(N,float)
 for m in range(N-1,-1,-1):

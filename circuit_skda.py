@@ -35,8 +35,9 @@ for m in range(N-1,-1,-1):
 print(x)
 
 
+
 import scipy.linalg as la
-# Get LU decomposition
+# Get LU decomposition and save the L & U matrices, where p
 p,l,u=la.lu(b)
 
 #Compute solution to Ly=c
