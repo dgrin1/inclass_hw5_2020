@@ -12,16 +12,17 @@ N = len(v)
 
 
 
-A = array([[ 4,  -1, -1,  -1 ],
-           [ -1,  3, 0, -1 ],
-           [ -1, 0,  3,  -1 ],
-           [ -1, -1,  -1,  4 ]], float)
-v = array([ 5, 0, 5, 0 ],float)
-N = len(v)
+# A = array([[ 4,  -1, -1,  -1 ],
+#            [ -1,  3, 0, -1 ],
+#            [ -1, 0,  3,  -1 ],
+#            [ -1, -1,  -1,  4 ]], float)
+# v = array([ 5, 0, 5, 0 ],float)
+# N = len(v)
 
 
 B=copy(A)
 vold=copy(v)
+
 
 
 # Gaussian elimination
