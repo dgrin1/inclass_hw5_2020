@@ -1,3 +1,7 @@
+#Code by Sam and Justine
+#This still doesn't work!
+#spent a lot of time trying to figure out what exactly the thermal curve was a function of
+
 from __future__ import print_function,division
 import numpy as np
 from scipy.interpolate import interp1d as interp
@@ -30,6 +34,23 @@ def simp(f,a,b,n): #python lets you pass whole functions
 		for i in range(2,n,2):
 			int+=f(a+float(i)*h)*2.e0*h/3.e0 #add even points
 	return int,h
+
+def simp2(f,kappa,a,b,n): #python lets you pass whole functions
+#initialize integral as zero
+        int=0
+#check that number of points is even
+        if n%2 != 0:
+                print('Uneven number of points')
+                h=0
+                int=0
+        else:
+                h=(b-a)/float(n) # set step size
+                int=(f(kappa,a)+f(kappa,b))*h/3.0e0 #outer and inner boundaries
+                for i in range(1,n+1,2):
+                        int+=f(kappa,a+float(i)*h)*4.e0*h/3.e0 #add odd points
+                for i in range(2,n,2):
+                        int+=f(kappa,a+float(i)*h)*2.e0*h/3.e0 #add even points
+        return int,h
 
 #Simpsons rule with an error estimate
 def simpreal(f,a,b,n): #python lets you pass whole functions
@@ -65,7 +86,10 @@ def frac_simpreal(kappa,N):
 
 	return u/v,np.abs(u/v-(u+eu)/(v-ev))
 
-#Row 4 add ons
+
+
+#Row 4 add ons!!!
+#function to differentiate using central difference method
 def finite_diff(x, func, h):
 	out = []
 	func_con = interp(x, func)
@@ -75,18 +99,21 @@ def finite_diff(x, func, h):
 		out.append(term)
 	return out
 
+#several tries of debugging stages
+#N = 30
+#kappa=13.6/10.
+#karr=np.arange(1,1000.6,0.05)
+#x = np.linspace(1.e-8,np.pi/2,N)
+#func,h = simp2(arg,kappa, 1.e-8, np.pi/2, N)
+#print(len(x))
+#print(len(func))
+#deriv = finite_diff(x, func, h)
 
-N = 30
-kappa=13.6/10.
-x = np.linspace(1.e-8,np.pi/2,N)
-func,h = simp(arg, 1.e-8, np.pi/2, N)
-deriv = finite_diff(x, func, h)
-
-import matplotlib.pyplot as plt
-plt.plot(x, deriv, label='after diff')
-plt.plot(x, arg(kappa, x), label='input')
-plt.legend()
-plt.show
+#import matplotlib.pyplot as plt
+#plt.plot(x, deriv, label='after diff')
+#plt.plot(x, arg(kappa, x), label='input')
+#plt.legend()
+#plt.show
 
 
 
@@ -97,9 +124,9 @@ plt.show
 
 #Make plot off error as a function of N
 #Generate arrays
-errarr=[]
-errarr_g=[]
-kappa=13.6/10.
+#errarr=[]
+#errarr_g=[]
+#kappa=13.6/10.
 '''
 nr=np.logspace(1,5,20)
 nr=nr.astype(int)
@@ -123,8 +150,17 @@ import matplotlib.pyplot as plt
 #plt.yscale('log')
 
 #Arrays and graphics for second plot plots ionization fraction as a function of temperature
-#karr=np.arange(1,1000.6,0.05)
-#s,e=frac_simpreal(13.6/karr,70)
+#last attempt to actually execute the problem
+karr=np.arange(1,1000.6,0.05)
+s,e=frac_simpreal(13.6/karr,70)
+h = 0.05
+deriv = finite_diff(13.6/karr, s, h)
+import matplotlib.pyplot as plt
+plt.plot(13.6/karr, deriv, label='after diff')
+plt.plot(13.6/karr, arg(kappa, x), label='input')
+plt.legend()
+plt.show
+
 #plt.subplot(212)
 #plt.ylim([1.e-4,2])
 #plt.xlim([1.e-0,1.e3])
@@ -134,12 +170,12 @@ import matplotlib.pyplot as plt
 #plt.show()
 
 
-theta_array = np.linspace(0, 2*np.pi, 1000)
+#theta_array = np.linspace(0, 2*np.pi, 1000)
 
-plt.plot(theta_array, arg(kappa, theta_array))
-plt.xscale('log')
-plt.yscale('log')
-plt.show()
+#plt.plot(theta_array, arg(kappa, theta_array))
+#plt.xscale('log')
+#plt.yscale('log')
+#plt.show()
 
 
 
