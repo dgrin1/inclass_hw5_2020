@@ -37,7 +37,7 @@ print(x)
 
 
 import scipy.linalg as la
-# Get LU decomposition and save the L & U matrices, where p
+# Get LU decomposition and save the L & U matrices, where p is ???
 p,l,u=la.lu(b)
 
 #Compute solution to Ly=c
