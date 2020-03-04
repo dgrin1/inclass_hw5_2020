@@ -22,3 +22,4 @@ def yupper(x):
 mass, error = dblquad(sigma,0.,3.,ylower,yupper)
 
 print('The mass of the plate is %g grams' % mass)
+

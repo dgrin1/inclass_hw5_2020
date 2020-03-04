@@ -1,4 +1,4 @@
-from __future__ import print_function,division
+#from __future__ import print_function,division
 import numpy as np
 
 
@@ -63,13 +63,7 @@ def frac_simpreal(kappa,N):
 #Halve stepsize to get an error estimate
 	v,ev,a,b=simpreal(integrand_botto,1.e-8,np.pi/2,N)
 
-	return u/v,np.abs(u/v-(u+eu)/(v-ev))
-
-
-
-
-
-
+	return u/v, np.abs(u/v-(u+eu)/(v-ev))
 
 
 
@@ -94,7 +88,7 @@ for i in nr:
 import matplotlib.pyplot as plt
 plt.ion()
 plt.subplot(211)
-
+# PLot1 
 plt.plot(nr,errarr)
 plt.xscale('log')
 plt.yscale('log')
@@ -105,10 +99,12 @@ s,e=frac_simpreal(13.6/karr,70)
 plt.subplot(212)
 plt.ylim([1.e-4,2])
 plt.xlim([1.e-0,1.e3])
+# Plot2
 plt.plot(karr,s)
 plt.xscale('log')
 plt.yscale('log')
 plt.show()
+plt.savefig('thermal.pdf',format='pdf')
 
 
 
