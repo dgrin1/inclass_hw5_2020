@@ -3,6 +3,7 @@
 # import needed libraries
 from pylab import *
 from scipy.integrate import dblquad
+from math import exp
 
 # define functions
 # integrand
