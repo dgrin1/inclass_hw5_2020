@@ -1,11 +1,15 @@
 from numpy import array,empty,copy,dot
 from numpy.linalg import inv,solve
+#scipy.linalg lu
+#dot
 
 A=array([[1,1,-1],
-	 [6,0,0],
-	 [0,0,9]],float)
+	 [-6,0,0],
+	 [0,0,-9]],float)
 v=array([0,6,-12],float)
 N=len(v)
+b=copy(A)
+c=copy(v)
 
 # Gaussian elimination
 for m in range(N):
